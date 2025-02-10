@@ -1,15 +1,39 @@
-
-<!DOCTYPE html>
-<html> 
+<!doctype html>
+<html lang="en">
 <head>
-  <script>
-    var player = document.getElementById("player");
-    player.play();
-  </script>
+  <meta charset="UTF-8">
+  <title>audio test</title>
 </head>
 <body>
-<audio id="player">
-  <source src="cyhunt.wav" /> 
-</audio> 
-</body>
+<!--   <audio controls="controls" autoplay>
+  Your browser does not support the <code>audio</code> element.
+  <source src="smb_gameover.wav" type="audio/wav">
+</audio>
+ -->
+
+<button class="playWAV">Play WAV</button>
+
+<script>
+/**********************
+******** AUDIO ********
+**********************/
+
+// load and play a sound.
+function playSound(path) {
+  // audio supported?
+  if (typeof window.Audio === 'function') {
+    var audioElem = new Audio();
+    audioElem.src = path;
+    audioElem.play();
+  }
+}
+
+// event listeners
+document.querySelector('.playWAV').addEventListener('click', function(){
+  playSound('cyhunt.wav');
+});
+
+</script>
+
+ </body>
 </html>
